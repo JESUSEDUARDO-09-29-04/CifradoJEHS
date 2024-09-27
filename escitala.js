@@ -67,26 +67,25 @@ function copiarTexto() {
     }
 }
 
-// Funciones de cifrado y descifrado de Escítala
+// Quitar los export
 function cifrarEscitala(mensaje, columnas) {
-    let filas = Math.ceil(mensaje.length / columnas);
-    let matriz = [];
+    const longitud = mensaje.length;
+    const filas = Math.ceil(longitud / columnas);
+    const matriz = Array.from({ length: filas }, () => Array(columnas).fill(''));
 
-    for (let i = 0; i < filas; i++) {
-        matriz[i] = [];
-    }
-
-    for (let i = 0; i < mensaje.length; i++) {
-        let fila = Math.floor(i / columnas);
-        let columna = i % columnas;
+    // Llenar la matriz con el mensaje
+    for (let i = 0; i < longitud; i++) {
+        const fila = Math.floor(i / columnas);
+        const columna = i % columnas;
         matriz[fila][columna] = mensaje[i];
     }
 
+    // Crear el mensaje cifrado
     let mensajeCifrado = '';
-    for (let columna = 0; columna < columnas; columna++) {
-        for (let fila = 0; fila < filas; fila++) {
-            if (matriz[fila][columna]) {
-                mensajeCifrado += matriz[fila][columna];
+    for (let col = 0; col < columnas; col++) {
+        for (let row = 0; row < filas; row++) {
+            if (matriz[row][col] !== '') {
+                mensajeCifrado += matriz[row][col];
             }
         }
     }
@@ -94,35 +93,34 @@ function cifrarEscitala(mensaje, columnas) {
     return { mensajeCifrado, matriz };
 }
 
-function descifrarEscitala(mensaje, columnas) {
-    let filas = Math.ceil(mensaje.length / columnas);
-    let matriz = [];
+function descifrarEscitala(mensajeCifrado, columnas) {
+    const longitud = mensajeCifrado.length;
+    const filas = Math.ceil(longitud / columnas);
+    const matriz = Array.from({ length: filas }, () => Array(columnas).fill(''));
 
-    for (let i = 0; i < columnas; i++) {
-        matriz[i] = [];
-    }
-
+    const numFullColumns = longitud % columnas;
     let index = 0;
-    for (let columna = 0; columna < columnas; columna++) {
-        for (let fila = 0; fila < filas; fila++) {
-            if (index < mensaje.length) {
-                matriz[fila][columna] = mensaje[index];
-                index++;
+    for (let col = 0; col < columnas; col++) {
+        for (let row = 0; row < filas; row++) {
+            if (numFullColumns !== 0 && col >= numFullColumns && row === filas - 1) continue;
+            if (index < longitud) {
+                matriz[row][col] = mensajeCifrado[index++];
             }
         }
     }
 
     let mensajeDescifrado = '';
-    for (let fila = 0; fila < filas; fila++) {
-        for (let columna = 0; columna < columnas; columna++) {
-            if (matriz[fila][columna]) {
-                mensajeDescifrado += matriz[fila][columna];
+    for (let row = 0; row < filas; row++) {
+        for (let col = 0; col < columnas; col++) {
+            if (matriz[row][col] !== '') {
+                mensajeDescifrado += matriz[row][col];
             }
         }
     }
 
     return mensajeDescifrado;
 }
+
 // Obtener elementos del DOM
 const modal = document.getElementById("modalInstrucciones");
 const spanCerrar = document.querySelector(".close");
