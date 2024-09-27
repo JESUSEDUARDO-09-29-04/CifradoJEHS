@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado Escítala</title>
+    <link rel="stylesheet" href="escitala.css">
+</head>
+<body data-cifrado="escitala">
+    <div class="container">
+        <h2>Cifrado Escítala</h2>
+
+        <div class="form-container">
+            <label for="mensaje">Mensaje a cifrar/descifrar:</label>
+            <input type="text" id="mensaje" placeholder="Escribe o pega el mensaje">
+
+            <label for="columnas">Número de columnas (clave):</label>
+            <input type="number" id="columnas" placeholder="Número de columnas">
+
+            <div class="buttons">
+                <button id="cifrar">Cifrar</button>
+                <button id="descifrar">Descifrar</button>
+            </div>
+
+            <div id="resultado-container">
+                <strong>Resultado:</strong> <span id="resultado"></span>
+                <button id="copiar">Copiar</button>
+            </div>
+
+            <div id="matriz-container">
+                <h3>Matriz generada:</h3>
+                <table id="matriz"></table>
+            </div>
+            <div id="resultado-container"></div>
+            <button id="regresar" class="menu-button">Regresar al Menú</button>
+            </div>
+            <!-- Botón para abrir el modal con el signo de interrogación -->
+            <button id="ayuda" class="help-button">❓</button>
+            <div id="modalInstrucciones" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Instrucciones</h3>
+                    <p id="instruccionesTexto"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      // Redirige al usuario de vuelta al menú principal
+      document.getElementById('regresar').addEventListener('click', function() {
+          window.location.href = 'index.html';
+      });
+  </script>
+    <script src="escitala.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+/* Fondo de la página */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Contenedor principal */
+.container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Título principal */
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* Input de texto y números */
+input {
+  font-size: 1rem;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #20a199;
+}
+
+/* Botones principales */
+button {
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button#cifrar {
+  background-color: #008781;
+  color: white;
+}
+button#cifradoCesar {
+  background-color: #008781;
+  color: white;
+}
+button#cifradoEscitala {
+  background-color: #008781;
+  color: white;
+}
+
+button#cifrar:hover {
+  background-color: #6ddbd7;
+}
+
+button#descifrar {
+  background-color: #239f98;
+  color: white;
+  margin-top: 10px;
+}
+
+button#descifrar:hover {
+  background-color: #3ab8b0;
+}
+
+/* Resultado */
+#copiar {
+  margin-top: 20px; /* Añadir más espacio arriba del botón */
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#resultado-container {
+  margin-top: 30px;
+  text-align: left; /* Alinea el texto del resultado a la izquierda */
+}
+
+#resultado {
+  padding: 15px;
+  font-size: 1rem;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+
+#resultado:focus {
+  outline: none;
+  border-color: #20a199;
+}
+
+/* Tabla de matriz (opcional si tienes que mostrar la matriz generada) */
+#matriz-container {
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+/* Estilos para el modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* Fondo semitransparente */
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+.help-button {
+  position: relative;
+  padding: 20px;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: none; /* Elimina el fondo */
+    border: none; /* Elimina el borde */
+    color: red; /* Mantiene el color rojo del ❓ */
+}
+
+/* El contenedor del formulario debe tener position: relative */
+.form-container {
+  position: relative;
+  padding: 20px;
+}

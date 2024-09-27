@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="escitala.css">
+    <title>Cifrado César</title>
+</head>
+<body data-cifrado="cesar">
+    <div class="container">
+        <h2>Cifrado César</h2>
+
+        <div class="form-container">
+            <label for="inputText">Mensaje a cifrar/descifrar:</label>
+            <input type="text" id="inputText" placeholder="Introduce el texto">
+
+            <label for="shift">Desplazamiento (número entero):</label>
+            <input type="number" id="shift" min="1" placeholder="Introduce el desplazamiento">
+
+            <div class="buttons">
+                <button id="cifrar" onclick="cifrar()">Cifrar</button>
+                <button id="descifrar" onclick="descifrar()">Descifrar</button>
+            </div>
+
+            <div id="resultado-container">
+                <strong>Resultado:</strong>
+                <textarea id="outputText" readonly></textarea>
+                <button id="copiar">Copiar</button>
+            </div>
+            <div id="resultado-container"></div>
+            <button id="regresar" class="menu-button">Regresar al Menú</button>
+            </div>
+            <button id="ayuda" class="help-button">❓</button>
+            <div id="modalInstrucciones" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Instrucciones</h3>
+                    <p id="instruccionesTexto"></p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    <script>
+        // Redirige al usuario de vuelta al menú principal
+        document.getElementById('regresar').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
