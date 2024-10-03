@@ -13,25 +13,29 @@
 
         <div class="buttons">
             <button id="cifradoCesar" class="menu-button">Cifrado César</button>
-            
-        </div>
-        <p></p>
-
-        <div class="buttons"></div>
-           
+            <p></p>
             <button id="cifradoEscitala" class="menu-button">Cifrado Escítala</button>
+        </div>
+
+        <p></p>
+        
+        <!-- Botón para "Acerca de" -->
+        <div class="buttons">
+            <button id="acercaDe" class="menu-button">Acerca de</button>
         </div>
     </div>
 
     <script>
-        
-        // Redirección según la selección del cifrado
         document.getElementById('cifradoCesar').addEventListener('click', function() {
-            window.location.href = 'cesar.html'; // Asume que el archivo se llama 'cesar.html'
+            window.location.href = 'cesar.html';
         });
 
         document.getElementById('cifradoEscitala').addEventListener('click', function() {
             window.location.href = 'escitala.html';
+        });
+
+        document.getElementById('acercaDe').addEventListener('click', function() {
+            window.location.href = 'acercaDe.html'; // Nueva pantalla de "Acerca de"
         });
     </script>
 </body>
